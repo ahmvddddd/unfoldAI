@@ -49,13 +49,12 @@ class DashboardPage extends ConsumerWidget {
         ],
       ),
 
-      // --- BODY ---
       body: LayoutBuilder(
         builder: (context, constraints) {
           final isNarrow = constraints.maxWidth < 375;
 
           if (state.loading) {
-            return _skeleton(context);
+            return _buildSkeletonLoader(context);
           }
 
           if (state.error != null) {
@@ -126,17 +125,47 @@ class DashboardPage extends ConsumerWidget {
     );
   }
 
-  Widget _skeleton(BuildContext c) => Skeletonizer(
-    enabled: true,
-    child: ListView(
-      padding: const EdgeInsets.all(16),
-      children: const [
-        SizedBox(height: 220),
-        SizedBox(height: 16),
-        SizedBox(height: 220),
-        SizedBox(height: 16),
-        SizedBox(height: 220),
-      ],
-    ),
-  );
+  Widget _buildSkeletonLoader(BuildContext context) {
+    return Skeletonizer(
+      enabled: true,
+      child: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          _buildChartPlaceholder('Heart Rate Variability (HRV)'),
+          const SizedBox(height: 16),
+          _buildChartPlaceholder('Resting Heart Rate (RHR)'),
+          const SizedBox(height: 16),
+          _buildChartPlaceholder('Steps'),
+        ],
+      ),
+    );
+  }
+
+  /// Chart placeholder block
+  Widget _buildChartPlaceholder(String title) {
+    return Card(
+      elevation: 1,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(title,
+                style: const TextStyle(
+                    fontSize: 16, fontWeight: FontWeight.w600)),
+            const SizedBox(height: 12),
+            // Fake chart container (skeleton shimmer will overlay this)
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                color: Colors.grey[600],
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

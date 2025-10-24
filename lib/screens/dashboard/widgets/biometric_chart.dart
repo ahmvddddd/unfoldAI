@@ -33,7 +33,7 @@ class _BiometricsChartState extends ConsumerState<BiometricsChart> {
     _trackballBehavior = TrackballBehavior(
       enable: true,
       activationMode: ActivationMode.singleTap,
-      tooltipSettings: const InteractiveTooltip(enable: false),
+      tooltipSettings: const InteractiveTooltip(enable: true),
     );
     _zoomPanBehavior = ZoomPanBehavior(
       enablePinching: true,

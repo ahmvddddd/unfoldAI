@@ -19,6 +19,7 @@ class _AppState extends ConsumerState<App> {
   Widget build(BuildContext context) {
     final router = ref.watch(routerProvider);
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: ThemeData(
         brightness: Brightness.light,
