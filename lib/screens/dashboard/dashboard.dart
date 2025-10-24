@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../controllers/biometrics_controller.dart';
 import '../../controllers/charts_controller.dart';
+import '../../models/biometrics_loader.dart';
 import '../../models/biometrics_model.dart';
 import 'widgets/biometric_chart.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -21,8 +22,19 @@ class DashboardPage extends ConsumerWidget {
         actions: [
           IconButton(
             tooltip: 'Toggle large dataset',
-            onPressed: () =>
-                ref.read(largeDatasetProvider.notifier).state = !isLarge,
+            onPressed: () async {
+              try {
+                ref.read(largeDatasetProvider.notifier).state = !isLarge;
+                await ref.read(biometricsControllerProvider.notifier).reload();
+              } catch (e) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Error toggling dataset: $e'),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              }
+            },
             icon: Icon(isLarge ? Icons.storage : Icons.storage_outlined),
           ),
           PopupMenuButton<RangeOption>(
@@ -53,35 +65,17 @@ class DashboardPage extends ConsumerWidget {
         builder: (context, constraints) {
           final isNarrow = constraints.maxWidth < 375;
 
+          // 1. Loading skeleton
           if (state.loading) {
             return _buildSkeletonLoader(context);
           }
 
+          // 2. Error state
           if (state.error != null) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.error_outline, color: Colors.red, size: 48),
-                  const SizedBox(height: 12),
-                  Text(
-                    'Failed to load data.\n${state.error}',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(color: Colors.redAccent),
-                  ),
-                  const SizedBox(height: 20),
-                  ElevatedButton.icon(
-                    icon: const Icon(Icons.refresh),
-                    label: const Text('Retry'),
-                    onPressed: () => ref
-                        .read(biometricsControllerProvider.notifier)
-                        .reload(),
-                  ),
-                ],
-              ),
-            );
+            return _buildErrorView(context, ref, state.error);
           }
 
+          // 3. Empty data state
           if (state.allData.isEmpty) {
             return const Center(
               child: Padding(
@@ -95,6 +89,7 @@ class DashboardPage extends ConsumerWidget {
             );
           }
 
+          // 4. Normal rendering with in-chart error guards
           return SingleChildScrollView(
             padding: EdgeInsets.symmetric(
               horizontal: isNarrow ? 8 : 16,
@@ -102,20 +97,20 @@ class DashboardPage extends ConsumerWidget {
             ),
             child: Column(
               children: [
-                BiometricsChart(
+                _safeChart(
                   title: 'Heart Rate Variability (HRV)',
-                  valueSelector: (BiometricEntry e) => e.hrv,
-                  showHrvBand: true,
+                  selector: (e) => e.hrv,
+                  showBand: true,
                 ),
-                BiometricsChart(
+                _safeChart(
                   title: 'Resting Heart Rate (RHR)',
-                  valueSelector: (BiometricEntry e) => e.rhr?.toDouble(),
-                  showHrvBand: false,
+                  selector: (e) => e.rhr?.toDouble(),
+                  showBand: false,
                 ),
-                BiometricsChart(
+                _safeChart(
                   title: 'Steps',
-                  valueSelector: (BiometricEntry e) => e.steps?.toDouble(),
-                  showHrvBand: false,
+                  selector: (e) => e.steps?.toDouble(),
+                  showBand: false,
                 ),
               ],
             ),
@@ -123,6 +118,34 @@ class DashboardPage extends ConsumerWidget {
         },
       ),
     );
+  }
+
+  /// Displays an inline error instead of crashing when chart data fails
+  Widget _safeChart({
+    required String title,
+    required double? Function(BiometricEntry) selector,
+    required bool showBand,
+  }) {
+    try {
+      return BiometricsChart(
+        title: title,
+        valueSelector: selector,
+        showHrvBand: showBand,
+      );
+    } catch (e) {
+      return Card(
+        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+        color: Colors.red.withOpacity(0.1),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text(
+            'Unable to render $title chart.\nError: $e',
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: Colors.red, fontSize: 14),
+          ),
+        ),
+      );
+    }
   }
 
   Widget _buildSkeletonLoader(BuildContext context) {
@@ -141,7 +164,30 @@ class DashboardPage extends ConsumerWidget {
     );
   }
 
-  /// Chart placeholder block
+  Widget _buildErrorView(BuildContext context, WidgetRef ref, Object? error) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(Icons.error_outline, color: Colors.red, size: 48),
+          const SizedBox(height: 12),
+          Text(
+            'Failed to load data.\n$error',
+            textAlign: TextAlign.center,
+            style: const TextStyle(color: Colors.redAccent),
+          ),
+          const SizedBox(height: 20),
+          ElevatedButton.icon(
+            icon: const Icon(Icons.refresh),
+            label: const Text('Retry'),
+            onPressed: () =>
+                ref.read(biometricsControllerProvider.notifier).reload(),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildChartPlaceholder(String title) {
     return Card(
       elevation: 1,
@@ -155,7 +201,6 @@ class DashboardPage extends ConsumerWidget {
                 style: const TextStyle(
                     fontSize: 16, fontWeight: FontWeight.w600)),
             const SizedBox(height: 12),
-            // Fake chart container (skeleton shimmer will overlay this)
             Container(
               height: 200,
               decoration: BoxDecoration(

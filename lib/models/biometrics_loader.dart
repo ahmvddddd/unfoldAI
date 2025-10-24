@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/legacy.dart';
 import '../models/biometrics_model.dart';
 
-/// Loads, simulates, and expands biometric datasets.
-/// Also handles LTTB decimation in isolate.
+final largeDatasetProvider = StateProvider<bool>((ref) => false);
 class BiometricsLoader {
-  /// Loads data from assets or generates synthetic data.
+  
   static Future<(List<BiometricEntry>, List<JournalEntry>)> loadAssets() async {
     List<BiometricEntry> parsed = [];
     List<JournalEntry> journals = [];
@@ -46,7 +46,7 @@ class BiometricsLoader {
     return (parsed, journals);
   }
 
-  /// Expands dataset to simulate large dataset performance.
+
   static List<BiometricEntry> expandToLarge(
     List<BiometricEntry> input, {
     int targetCount = 10000,
@@ -130,7 +130,6 @@ class BiometricsLoader {
         .toList();
   }
 
-  /// --- Private helpers ---
 
   static List<BiometricEntry> _generateSynthetic(int days) {
     final rand = Random();
@@ -156,7 +155,6 @@ class BiometricsLoader {
   }
 }
 
-/// --- Isolate Helper ---
 List<Map<String, double>> _lttbRaw(
   List<Map<String, double>> data,
   int threshold,

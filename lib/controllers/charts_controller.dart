@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/legacy.dart';
 
 final chartHoverProvider = StateProvider<DateTime?>((ref) => null);
-final largeDatasetProvider = StateProvider<bool>((ref) => false);
+
 
 enum RangeOption { days7, days30, days90 }
 
