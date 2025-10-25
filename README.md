@@ -13,9 +13,9 @@ It demonstrates responsive visualization, dynamic range selection, and high-perf
 
 ## Visual Demo
 
-A simple videoram of how the app works:
+A demo video of how the app works:
 
-<img src="assets/demo.mp4" alt="Demo" width="520" height="800"/>
+[unfoldAI]<img src="assets/demo.mp4" alt="Demo" width="520" height="800"/>
 
 ---
 
