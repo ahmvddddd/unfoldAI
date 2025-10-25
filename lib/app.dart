@@ -22,7 +22,7 @@ class _AppState extends ConsumerState<App> {
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
