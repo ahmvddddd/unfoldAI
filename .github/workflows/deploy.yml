@@ -2,7 +2,10 @@ name: unfoldAI
 on:
   push:
     branches:
-      - main  # Deploy whenever you push to main
+      - main
+
+permissions:
+  contents: write      
 
 jobs:
   build:
