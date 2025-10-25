@@ -44,7 +44,6 @@ git clone https://github.com/ahmvddddd/unfoldAI.git
 cd unfoldAI
 flutter pub get
 flutter run -d chrome
-
 ```
 
 ## Testing
@@ -53,7 +52,6 @@ Run all tests:
 
 ```
 flutter test
-
 ```
 
 ## Libraries & Tools
