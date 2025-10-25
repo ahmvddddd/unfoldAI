@@ -5,6 +5,20 @@ It demonstrates responsive visualization, dynamic range selection, and high-perf
 
 ---
 
+## Live link
+
+[unfoldAI](https://ahmvddddd.github.io/unfoldAI/)
+
+---
+
+## Visual Demo
+
+A simple videoram of how the app works:
+
+<img src="assets/demo.mp4" alt="Demo" width="520" height="800"/>
+
+---
+
 ## Overview
 
 The application provides:

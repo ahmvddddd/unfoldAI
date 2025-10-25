@@ -15,7 +15,7 @@ class _AppState extends ConsumerState<App> {
   }
 
   @override
-  Widget build(BuildContext context) {;
+  Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DashboardPage(),

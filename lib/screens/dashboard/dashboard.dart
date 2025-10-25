@@ -135,7 +135,7 @@ class DashboardPage extends ConsumerWidget {
     } catch (e) {
       return Card(
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-        color: Colors.red.withOpacity(0.1),
+        color: Colors.red.withValues(alpha: 0.1),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Text(

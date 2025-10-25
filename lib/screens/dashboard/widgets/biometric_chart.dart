@@ -125,7 +125,7 @@ class _BiometricsChartState extends ConsumerState<BiometricsChart> {
                   widget: Container(
                     width: 2,
                     height: 200,
-                    color: Colors.blue.withOpacity(0.25),
+                    color: Colors.blue.withValues(alpha: 0.25),
                   ),
                 ),
             ],
@@ -163,7 +163,7 @@ class _BiometricsChartState extends ConsumerState<BiometricsChart> {
                   color: Theme.of(context)
                       .colorScheme
                       .primary
-                      .withOpacity(0.12),
+                      .withValues(alpha: 0.12),
                   borderWidth: 0,
                 ),
             ],
@@ -176,7 +176,7 @@ class _BiometricsChartState extends ConsumerState<BiometricsChart> {
   /// Error fallback card
   Widget _errorCard(String message) {
     return Card(
-      color: Colors.red.withOpacity(0.1),
+      color: Colors.red.withValues(alpha: 0.1),
       margin: const EdgeInsets.all(12),
       child: SizedBox(
         height: 220,
