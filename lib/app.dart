@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'controllers/route_controller.dart';
-
+import '../screens/dashboard/dashboard.dart';
 class App extends ConsumerStatefulWidget {
   const App({super.key});
 
@@ -16,11 +15,10 @@ class _AppState extends ConsumerState<App> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final router = ref.watch(routerProvider);
-    return MaterialApp.router(
+  Widget build(BuildContext context) {;
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routerConfig: router,
+      home: DashboardPage(),
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),

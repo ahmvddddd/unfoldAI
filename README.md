@@ -19,23 +19,6 @@ The application provides:
 
 ---
 
-##Project Structure
-
-lib/
-├── main.dart                      # App entry point
-├── models/
-│   └── biometrics_model.dart      # Defines BiometricEntry data model
-├── controllers/
-│   ├── biometrics_controller.dart # Fetches and manages biometric data state
-│   └── charts_controller.dart     # Handles chart logic, decimation, and range control
-└── views/
-    ├── dashboard_page.dart        # Main dashboard UI
-    └── widgets/
-        └── biometric_chart.dart   # Chart widget with FlChart integration
-
-
----
-
 ## Data Flow
 
 biometrics_controller.dart loads or simulates data for each biometric metric.
