@@ -23,21 +23,21 @@ A demo video of how the app works:
 
 The application provides:
 
-. Interactive biometric charts with tooltips, annotations, and synced axes.
-. Range filtering (7, 30, and 90 days).
-.Large dataset toggle to simulate high-volume data (>10,000 points).
-. State management with Riverpod.
-. Loading skeletons, error views, and retry handling.
-. Responsive layout, optimized for 375px width and above.
-. Smooth chart performance (<16 ms per frame) via data decimation (LTTB).
+1. Interactive biometric charts with tooltips, annotations, and synced axes.
+2. Range filtering (7, 30, and 90 days).
+3. Large dataset toggle to simulate high-volume data (>10,000 points).
+4. State management with Riverpod.
+5. Loading skeletons, error views, and retry handling.
+6. Responsive layout, optimized for 375px width and above.
+7. Smooth chart performance (<16 ms per frame) via data decimation (LTTB).
 
 ---
 
 ## Data Flow
 
-biometrics_controller.dart loads or simulates data for each biometric metric.
-charts_controller.dart applies LTTB downsampling for large datasets, ensuring efficient rendering.
-dashboard_page.dart observes the controller’s state and renders multiple BiometricsChart widgets, each linked to a specific biometric metric.
+1. biometrics_controller.dart loads or simulates data for each biometric metric.
+2. charts_controller.dart applies LTTB downsampling for large datasets, ensuring efficient rendering.
+3. dashboard_page.dart observes the controller’s state and renders multiple BiometricsChart widgets, each linked to a specific biometric metric.
 
 ---
 
@@ -72,7 +72,7 @@ flutter test
 
 flutter_riverpod — reactive state management
 
-fl_chart — interactive and animated data visualization
+syncfusion_flutter_charts — interactive and animated data visualization
 
 skeletonizer — loading skeletons for placeholder views
 
