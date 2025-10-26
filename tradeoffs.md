@@ -1,6 +1,6 @@
 # Tradeoffs
 
-##Trade-offs in Downsampling and Performance Optimization
+## Trade-offs in Downsampling and Performance Optimization
 
 This document explains the trade-offs made while implementing data decimation strategies in UnfoldAI.
 
@@ -14,39 +14,39 @@ This document explains the trade-offs made while implementing data decimation st
 
 . Maintains key visual points (peaks and valleys).
 
-## Cons
+### Cons
 
-Slightly complex implementation.
+. Slightly complex implementation.
 
-May not capture micro-trends within very dense buckets.
+. May not capture micro-trends within very dense buckets.
 
-2. Bucket Mean
+## 2. Bucket Mean
 
-Pros
+### Pros
 
-Simple to implement and understand.
+. Simple to implement and understand.
 
-Suitable for uniformly distributed data.
+. Suitable for uniformly distributed data.
 
-Cons
+### Cons
 
-Averages may blur sharp changes.
+. Averages may blur sharp changes.
 
-Does not guarantee preservation of significant peaks.
+. Does not guarantee preservation of significant peaks.
 
-3. Random Sampling
+## 3. Random Sampling
 
-Pros
+### Pros
 
-Fastest method.
+. Fastest method.
 
-Suitable for quick approximations.
+. Suitable for quick approximations.
 
-Cons
+### Cons
 
-Poor accuracy; high risk of losing trend fidelity.
+. Poor accuracy; high risk of losing trend fidelity.
 
-4. Final Choice: LTTB
+## 4. Final Choice: LTTB
 
 LTTB was selected for its balance between speed and visual accuracy.
 It ensures each frame renders within 16 ms, even for datasets exceeding 10,000 points, without noticeable visual degradation.
