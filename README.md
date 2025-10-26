@@ -1,91 +1,48 @@
-# UnfoldAI
+# UnfoldAI (Flutter Web/Mobile)
 
-**UnfoldAI** is a Flutter-based web application that visualizes biometric data such as Heart Rate Variability (HRV), Resting Heart Rate (RHR), and Steps through interactive charts.
-It demonstrates responsive visualization, dynamic range selection, and high-performance rendering for large datasets using downsampling techniques such as Largest Triangle Three Buckets (LTTB).
+**Live demo:** [unfoldAI](https://ahmvddddd.github.io/unfoldAI/)
 
----
+**Video (≤2 min):** [Demo Video](assets/demo.mp4) 
 
-## Live link
+**Repo:** [Repo](https://github.com/ahmvddddd/unfoldAI/)
 
-[unfoldAI](https://ahmvddddd.github.io/unfoldAI/)
+## What it does
+- 3 synced charts: HRV, RHR, Steps  
+- Shared crosshair + 7d/30d/90d range toggle  
+- Journal annotations (tap to view mood/note)  
+- HRV band (7-day mean ± 1σ)  
+- Latency (700–1200 ms) + ~10% random load failures + Retry  
+- Decimation for 30/90 days + dark mode  
 
----
-
-## Visual Demo
-
-A demo video of how the app works:
-
-[🎥 Watch the demo](assets/demo.mp4)
-
----
-
-## Overview
-
-The application provides:
-
-1. Interactive biometric charts with tooltips, annotations, and synced axes.
-2. Range filtering (7, 30, and 90 days).
-3. Large dataset toggle to simulate high-volume data (>10,000 points).
-4. State management with Riverpod.
-5. Loading skeletons, error views, and retry handling.
-6. Responsive layout, optimized for 375px width and above.
-7. Smooth chart performance (<16 ms per frame) via data decimation (LTTB).
-
----
-
-## Data Flow
-
-1. biometrics_controller.dart loads or simulates data for each biometric metric.
-2. charts_controller.dart applies LTTB downsampling for large datasets, ensuring efficient rendering.
-3. dashboard_page.dart observes the controller’s state and renders multiple BiometricsChart widgets, each linked to a specific biometric metric.
-
----
-
-## Setup & Run
-
-### Prerequisites
-
-Flutter SDK 3.22+
-
-Dart 3+
-
-Chrome or Edge browser (for Flutter Web)
-
-## Installation
-
-```
-git clone https://github.com/ahmvddddd/unfoldAI.git
-cd unfoldAI
+## How to run
+```bash
 flutter pub get
 flutter run -d chrome
-```
-
-## Testing
-
-Run all tests:
+# or build for web:
+flutter build web && serve from /build/web
 
 ```
-flutter test
-```
 
-## Libraries & Tools
+## Data loading
 
-flutter_riverpod — reactive state management
+Injects 700–1200 ms latency and ~10% random load failures.
 
-syncfusion_flutter_charts — interactive and animated data visualization
+Libraries (+ why)
 
-skeletonizer — loading skeletons for placeholder views
+Syncfusion Charts (web pan/zoom/trackball), Riverpod (state), Skeletonizer (loading).
 
-LTTB algorithm — used to downsample large datasets while preserving trends
+## Architecture
 
-## Performance Notes
+Models → Services/Loader → Controllers (providers) → Screens/Widgets.
 
-When rendering large datasets (10k+ points), downsampling reduces the number of drawn points to maintain smooth UI updates (<16 ms per frame).
-The app dynamically applies LTTB to ensure performance without compromising data integrity or user experience.
+## Performance note
 
-Trade-offs and Decimation Strategy
+Bucket-mean decimation for 30/90-day ranges keeps frames under 16 ms.
+Preserves min/max in unit tests.
 
-To review the discussion on performance optimization and trade-offs made between different downsampling techniques (LTTB, bucket mean, and others), see:
-➡ [tradeoffs.md](tradeoffs.md)
+## Known limits
 
+Trackball API varies by Syncfusion version.
+Mobile FPS depends on device; a11y not added yet.
 
+---
