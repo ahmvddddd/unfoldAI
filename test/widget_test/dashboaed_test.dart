@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myapp/screens/dashboard/dashboard.dart';
+import 'package:unfoldAI/screens/dashboard/dashboard.dart';
 
 void main() {
   testWidgets('DashboardPage displays charts and toggles dataset', (tester) async {

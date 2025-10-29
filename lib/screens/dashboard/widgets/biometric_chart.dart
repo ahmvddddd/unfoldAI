@@ -198,10 +198,13 @@ class _BiometricsChartState extends ConsumerState<BiometricsChart> {
       child: SizedBox(
         height: 220,
         child: Center(
-          child: Text(
-            message,
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.grey, fontSize: 14),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              message,
+              textAlign: TextAlign.center,
+              style: const TextStyle(color: Colors.grey, fontSize: 14),
+            ),
           ),
         ),
       ),

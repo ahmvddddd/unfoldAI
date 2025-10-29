@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:myapp/models/biometrics_model.dart';
-import 'package:myapp/utils/lttb.dart';
+import 'package:unfoldAI/models/biometrics_model.dart';
+import 'package:unfoldAI/utils/lttb.dart';
 
 void main() {
   test('LTTB reduces large dataset while preserving key points', () {

@@ -18,7 +18,8 @@ class DashboardPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Biometrics Dashboard'),
+        title: const Text('Biometrics Dashboard',
+        style: TextStyle(fontSize: 14)),
         actions: [
           IconButton(
             tooltip: 'Toggle large dataset',
