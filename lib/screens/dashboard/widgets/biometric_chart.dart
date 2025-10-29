@@ -204,6 +204,7 @@ class _BiometricsChartState extends ConsumerState<BiometricsChart> {
               message,
               textAlign: TextAlign.center,
               style: const TextStyle(color: Colors.grey, fontSize: 14),
+              softWrap: true,
             ),
           ),
         ),

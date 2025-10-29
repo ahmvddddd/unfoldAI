@@ -1,11 +1,11 @@
 {
-    "name": "myapp",
-    "short_name": "myapp",
+    "name": "unfoldAI",
+    "short_name": "unfoldAI",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A flutter web app for unfoldAI flutter developer role.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
