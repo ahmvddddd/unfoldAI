@@ -20100,7 +20100,7 @@ Mz:function Mz(){},
 kK(a,b,c,d,e,f,g,h){return new A.py(e,f,d,c,b,h,g,a,null)},
 anR(a){a.ad(t.XP)
 return null},
-hj(a,b,c,d,e,f){return new A.k1(a,null,c,d,e,b,f,null)},
+hj(a,b,c,d,e,f,g){return new A.k1(a,null,d,e,f,c,b,g,null)},
 aCQ(a,b){var s=A.e5(a.av(null),B.b.ga6(a.gjU())),r=A.e5(b.av(null),B.b.ga6(b.gjU())),q=A.aCR(s,r)
 if(q!==0)return q
 return A.aCP(s,r)},
@@ -20126,15 +20126,16 @@ _.at=g
 _.b=h
 _.a=i},
 O0:function O0(a){this.a=a},
-k1:function k1(a,b,c,d,e,f,g,h){var _=this
+k1:function k1(a,b,c,d,e,f,g,h,i){var _=this
 _.c=a
 _.d=b
 _.e=c
 _.r=d
 _.w=e
-_.z=f
-_.as=g
-_.a=h},
+_.y=f
+_.z=g
+_.as=h
+_.a=i},
 Ci:function Ci(a,b,c,d,e,f,g,h,i,j,k,l,m){var _=this
 _.c=a
 _.d=b
@@ -23205,7 +23206,7 @@ this.b=b},
 aFE(a,b,c){var s,r,q=null,p=b.a
 if(p.length!==0){s=A.aFk(B.aR)
 r=A.an6(B.j,0)
-return new A.ES(A.Fj(A.c([A.uZ(s,A.uZ(q,A.hj(p,B.bz,c.fy,B.aj,q,B.Sl),q,new A.fs(c.y,q,r,q,q,q,B.bl),q,q,q,q),q,q,q,q,B.CK,q),A.aoh(a)],t.E),B.aS,B.aK,B.ca),q)}else return a},
+return new A.ES(A.Fj(A.c([A.uZ(s,A.uZ(q,A.hj(p,B.bz,q,c.fy,B.aj,q,B.Sl),q,new A.fs(c.y,q,r,q,q,q,B.bl),q,q,q,q),q,q,q,q,B.CK,q),A.aoh(a)],t.E),B.aS,B.aK,B.ca),q)}else return a},
 aFk(a){switch(a.a){case 0:return B.ho
 case 1:return B.a6
 case 2:return B.hn}},
@@ -46499,7 +46500,7 @@ if(this.b.j(0,a.b))s=this.c!==a.c
 else s=!0
 return s}}
 A.R7.prototype={
-a3(a){var s=this,r=null,q=s.w,p=s.x,o=A.vP(new A.f0(s.d,A.kK(A.ce(r,A.uZ(r,A.pj(new A.k1(r,s.c,q,p,r,r,r,r),1,1),r,s.r,r,s.f,s.e,r),!0,r,r,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),r,B.bz,!0,q,p,r,B.a_),r),r,s.y)
+a3(a){var s=this,r=null,q=s.w,p=s.x,o=A.vP(new A.f0(s.d,A.kK(A.ce(r,A.uZ(r,A.pj(new A.k1(r,s.c,q,p,r,r,r,r,r),1,1),r,s.r,r,s.f,s.e,r),!0,r,r,!1,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r),r,B.bz,!0,q,p,r,B.a_),r),r,s.y)
 o=A.ar3(o,B.cx,s.at,s.ax)
 q=A.cM(a,B.h8)
 q=q==null?r:q.f
@@ -67589,50 +67590,54 @@ return A.kK(b,s.Q,s.z,s.y,s.w,s.x,s.at,s.as)}}
 A.O0.prototype={
 a3(a){throw A.i(A.kN("A DefaultTextStyle constructed with DefaultTextStyle.fallback cannot be incorporated into the widget tree, it is meant only to provide a fallback value returned by DefaultTextStyle.of() when no enclosing default text style is present in a BuildContext."))}}
 A.k1.prototype={
-a3(a){var s,r,q,p,o,n,m,l,k,j,i,h,g=this,f=null,e=a.ad(t.yS)
-if(e==null)e=B.Ch
-s=g.e
-if(s==null||s.a)s=e.w.ba(s)
+a3(a){var s,r,q,p,o,n,m,l,k,j,i,h,g,f=this,e=null,d=a.ad(t.yS)
+if(d==null)d=B.Ch
+s=f.e
+if(s==null||s.a)s=d.w.ba(s)
 r=A.cM(a,B.Sn)
-r=r==null?f:r.ay
+r=r==null?e:r.ay
 if(r===!0)s=s.ba(B.OJ)
 q=A.yM(a)
-p=g.as
+p=f.as
 $label0$0:{if(t.tp.b(p)){r=p
 break $label0$0}o=p==null
 if(o){r=A.cM(a,B.cn)
-r=r==null?f:r.gdm()
+r=r==null?e:r.gdm()
 if(r==null)r=B.aP
-break $label0$0}r=f}n=A.bg()
+break $label0$0}r=e}n=A.bg()
 if(q!=null){m=t.Uf
 l=a.ad(m)
 l=(l==null?B.dr:l).y
 if(l==null)l=B.Mp
-k=g.r
-if(k==null)k=e.x
+k=f.r
+if(k==null)k=d.x
 if(k==null)k=B.ap
-j=g.z
-if(j==null)j=s.fy
-if(j==null)j=e.z
-i=A.anR(a)
+j=f.y
+if(j==null)j=d.y
+i=f.z
+if(i==null)i=s.fy
+if(i==null)i=d.z
+h=A.anR(a)
 m=a.ad(m)
 m=(m==null?B.dr:m).x
 if(m==null)m=B.ln
-h=g.d
-h=h!=null?A.c([h],t.VO):f
-n.b=A.a29(new A.Ci(A.fg(h,f,s,g.c),k,g.w,e.y,j,r,e.Q,f,f,e.as,i,m,f),l,f,f,f)}else{m=g.r
-if(m==null)m=e.x
+g=f.d
+g=g!=null?A.c([g],t.VO):e
+n.b=A.a29(new A.Ci(A.fg(g,e,s,f.c),k,f.w,j,i,r,d.Q,e,e,d.as,h,m,e),l,e,e,e)}else{m=f.r
+if(m==null)m=d.x
 if(m==null)m=B.ap
-l=g.z
-if(l==null)l=s.fy
-if(l==null)l=e.z
-k=A.anR(a)
-j=a.ad(t.Uf)
-j=(j==null?B.dr:j).x
-if(j==null)j=B.ln
-i=g.d
-i=i!=null?A.c([i],t.VO):f
-n.b=A.akS(f,f,e.Q,l,j,f,e.y,f,A.fg(i,f,s,g.c),m,g.w,k,r,e.as)}return n.ar()}}
+l=f.y
+if(l==null)l=d.y
+k=f.z
+if(k==null)k=s.fy
+if(k==null)k=d.z
+j=A.anR(a)
+i=a.ad(t.Uf)
+i=(i==null?B.dr:i).x
+if(i==null)i=B.ln
+h=f.d
+h=h!=null?A.c([h],t.VO):e
+n.b=A.akS(e,e,d.Q,k,i,e,l,e,A.fg(h,e,s,f.c),m,f.w,j,r,d.as)}return n.ar()}}
 A.Ci.prototype={
 aC(){return new A.Q5(new A.bl(null,t.A))}}
 A.Q5.prototype={
@@ -77712,17 +77717,17 @@ A.is.prototype={
 xR(){return A.an(["date",this.a.Uh(),"mood",this.b,"note",this.c],t.N,t.z)}}
 A.jV.prototype={}
 A.Fz.prototype={
-vq(a,b){var s=null,r=b.tu($.Td(),t.oA),q=b.tu($.amM(),t.zC),p=b.tu($.ajn(),t.y),o=A.c([A.aov(s,s,s,A.aou(p?B.Dm:B.Dn,s),s,s,new A.VJ(b,p,a),s,s,s,"Toggle large dataset"),new A.qr(new A.VK(),new A.VL(b),new A.c6(B.lX,A.pj(A.hj(A.aiY(q),s,s,s,s,s),s,s),s),s,t.bl)],t.E)
-return new A.yr(new A.ug(B.QS,o,new A.OI(s,s,1/0,56),s),A.ap0(new A.VM(this,r,b)),s)},
+vq(a,b){var s=null,r=b.tu($.Td(),t.oA),q=b.tu($.amM(),t.zC),p=b.tu($.ajn(),t.y),o=A.c([A.aov(s,s,s,A.aou(p?B.Dm:B.Dn,s),s,s,new A.VJ(b,p,a),s,s,s,"Toggle large dataset"),new A.qr(new A.VK(),new A.VL(b),new A.c6(B.lX,A.pj(A.hj(A.aiY(q),s,s,s,s,s,s),s,s),s),s,t.bl)],t.E)
+return new A.yr(new A.ug(B.QU,o,new A.OI(s,s,1/0,56),s),A.ap0(new A.VM(this,r,b)),s)},
 Bd(a,b,c){var s,r,q,p=null
 try{return new A.um(c,a,b,p)}catch(r){s=A.at(r)
 q=B.dR.bP(0.1)
-q=A.EL(new A.c6(B.lZ,A.hj("Unable to render "+c+" chart.\nError: "+A.p(s),p,B.O5,B.aj,p,p),p),q,p,B.lY,p)
+q=A.EL(new A.c6(B.lZ,A.hj("Unable to render "+c+" chart.\nError: "+A.p(s),p,p,B.O5,B.aj,p,p),p),q,p,B.lY,p)
 return q}},
 a0A(a,b,c){var s=null
-return A.pj(A.Fj(A.c([B.Dr,B.xp,A.hj("Failed to load data.\n"+A.p(c),s,B.MZ,B.aj,s,s),B.LQ,A.ay7(B.Dq,B.QR,new A.VF(b))],t.E),B.aS,B.j4,B.ca),s,s)},
+return A.pj(A.Fj(A.c([B.Dr,B.xp,A.hj("Failed to load data.\n"+A.p(c),s,s,B.MZ,B.aj,s,s),B.LQ,A.ay7(B.Dq,B.QT,new A.VF(b))],t.E),B.aS,B.j4,B.ca),s,s)},
 zf(a){var s=null,r=A.Ey(12)
-return A.EL(new A.c6(B.i3,A.Fj(A.c([A.hj(a,s,B.Nx,s,s,s),B.xp,A.uZ(s,s,s,new A.fs(B.cz,s,s,A.Ey(8),s,s,B.bl),200,s,s,s)],t.E),B.c1,B.aK,B.ca),s),s,1,s,new A.cR(r,B.t))}}
+return A.EL(new A.c6(B.i3,A.Fj(A.c([A.hj(a,s,s,B.Nx,s,s,s),B.xp,A.uZ(s,s,s,new A.fs(B.cz,s,s,A.Ey(8),s,s,B.bl),200,s,s,s)],t.E),B.c1,B.aK,B.ca),s),s,1,s,new A.cR(r,B.t))}}
 A.VJ.prototype={
 $0(){var s=0,r=A.a_(t.H),q=1,p=[],o=this,n,m,l,k
 var $async$$0=A.a0(function(a,b){if(a===1){p.push(b)
@@ -77737,7 +77742,7 @@ break
 case 3:q=2
 k=p.pop()
 n=A.at(k)
-o.c.ad(t.Pu).f.W0(A.aqr(null,null,null,B.dR,null,B.a7,null,A.hj("Error toggling dataset: "+A.p(n),null,null,null,null,null),null,B.CC,null,null,null,null,null,null,null,null,null))
+o.c.ad(t.Pu).f.W0(A.aqr(null,null,null,B.dR,null,B.a7,null,A.hj("Error toggling dataset: "+A.p(n),null,null,null,null,null,null),null,B.CC,null,null,null,null,null,null,null,null,null))
 s=5
 break
 case 2:s=1
@@ -77752,7 +77757,7 @@ return a},
 $S:480}
 A.VK.prototype={
 $1(a){var s=null,r=t.zC
-return A.c([A.akJ(A.hj(A.aiY(B.wn),s,s,s,s,s),B.wn,r),A.akJ(A.hj(A.aiY(B.wo),s,s,s,s,s),B.wo,r),A.akJ(A.hj(A.aiY(B.jl),s,s,s,s,s),B.jl,r)],t.bI)},
+return A.c([A.akJ(A.hj(A.aiY(B.wn),s,s,s,s,s,s),B.wn,r),A.akJ(A.hj(A.aiY(B.wo),s,s,s,s,s,s),B.wo,r),A.akJ(A.hj(A.aiY(B.jl),s,s,s,s,s,s),B.jl,r)],t.bI)},
 $S:481}
 A.VM.prototype={
 $2(a,b){var s,r=this,q=null,p="Heart Rate Variability (HRV)",o="Resting Heart Rate (RHR)",n=r.b
@@ -77761,7 +77766,7 @@ n=A.c([n.zf(p),B.xq,n.zf(o),B.xq,n.zf("Steps")],t.E)
 s=A.an([null,0],t.LO,t.S)
 return new A.QF(new A.Hh(new A.a8F(!0,!0,!0,n,s),B.lZ,B.aB,!1,q,q,B.yq,!1,q,5,B.aH,q,q,B.a7,B.an,q),!0,q,q,q,q,q,!0,q,q,q)}s=n.e
 if(s!=null)return r.a.a0A(a,r.c,s)
-if(J.oZ(n.a))return B.Ab
+if(J.oZ(n.a))return B.Ac
 n=b.b<375?8:16
 s=r.a
 return A.aqg(A.Fj(A.c([s.Bd(new A.VG(),!0,p),s.Bd(new A.VH(),!1,o),s.Bd(new A.VI(),!1,"Steps")],t.E),B.aS,B.aK,B.ca),q,new A.aM(n,8,n,8),q,B.aB)},
@@ -77795,7 +77800,7 @@ if(d.d)return B.LP
 e=d.e
 if(e!=null){e=A.p(e)
 s=B.dR.bP(0.1)
-return A.EL(A.lB(A.pj(A.hj("Error loading data: "+e,f,B.NW,B.aj,f,f),f,f),220,f),s,f,B.i3,f)}r=d.a
+return A.EL(A.lB(A.pj(A.hj("Error loading data: "+e,f,f,B.NW,B.aj,f,f),f,f),220,f),s,f,B.i3,f)}r=d.a
 e=J.bp(r)
 if(e.ga1(r))return g.K_("No biometric data available")
 e=e.fs(r,new A.abm(g),t.p0).yR(0,new A.abn())
@@ -77818,7 +77823,7 @@ j=A.c([new A.wC(new A.abp(),f,f,f,f,f,f,f,f,f,q,new A.abq(),f,f,B.et,B.eq,B.eB,f
 if(o)j.push(new A.xJ(new A.abr(),new A.abs(),B.j,f,f,f,f,f,f,f,f,f,p,new A.abt(),f,f,B.et,B.eq,B.eB,f,!0,!0,1500,A.a2(a).ax.b.bP(0.12),0,f,!0,B.fb,f,f,1,f,B.cg,!0,0,f,f,f,f,t.r7))
 return A.EL(new A.c6(B.f_,A.lB(new A.yY(new A.EW(s),0,new A.FB(f,!0,!0,B.en,B.eA,B.eD,B.rx,B.eC,f,B.eo,B.dh,f,3,0,0,B.b1,!1,!1,B.c0,B.f9,B.e9,B.f0,f,f,f,f,f,1,0,!0,B.dc,f,f,!0,B.mw,f,f,f,f,B.ek,f,0,B.cq,B.eE,f,f,f),new A.HP(!0,!0,B.en,B.eA,B.eD,B.rx,B.eC,f,B.eo,B.dh,f,3,0,0,B.b1,!1,!1,B.c0,B.f9,B.e9,B.f0,f,f,f,f,f,1,0,!0,B.dc,f,f,!0,B.mw,f,f,f,f,B.ek,f,0,B.cq,B.eE,f,f,f),new A.abu(g),l,m,k,j,f),240,f),f),f,1,B.CP,new A.cR(e,B.t))},
 K_(a){var s=null
-return A.EL(A.lB(A.pj(new A.c6(B.f_,A.hj(a,s,B.O8,B.aj,s,s),s),s,s),220,s),s,s,B.i3,s)},
+return A.EL(A.lB(A.pj(new A.c6(B.f_,A.hj(a,s,!0,B.O8,B.aj,s,s),s),s,s),220,s),s,s,B.i3,s)},
 aaA(a,b){var s,r,q=null,p=A.l9(a,!0).c
 p.toString
 s=A.aoC(a,p)
@@ -77857,9 +77862,9 @@ $2(a,b){return a.d},
 $S:181}
 A.abl.prototype={
 $1(a){var s=null,r=this.a,q=r.b
-q=A.hj("Journal "+A.p(q==null?"":q),s,s,s,s,s)
+q=A.hj("Journal "+A.p(q==null?"":q),s,s,s,s,s,s)
 r=r.c
-return new A.p3(q,A.hj(r==null?"No additional notes":r,s,s,s,s,s),A.c([new A.Ki(new A.abk(this.b),s,s,s,s,s,s,!1,s,!0,s,B.QT,s)],t.E),s)},
+return new A.p3(q,A.hj(r==null?"No additional notes":r,s,s,s,s,s,s),A.c([new A.Ki(new A.abk(this.b),s,s,s,s,s,s,!1,s,!0,s,B.QS,s)],t.E),s)},
 $S:491}
 A.abk.prototype={
 $0(){return A.l9(this.a,!1).hx()},
@@ -80950,9 +80955,9 @@ B.Aa=new A.uy(null,null,null,null,null)
 B.CU=new A.aM(32,32,32,32)
 B.Nd=new A.o(!0,B.fq,null,null,null,null,16,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.aj=new A.k2(2,"center")
-B.QU=new A.k1("No biometric data available yet.\nPlease check again later.",null,B.Nd,B.aj,null,null,null,null)
-B.Iy=new A.c6(B.CU,B.QU,null)
-B.Ab=new A.pi(B.a6,null,null,B.Iy,null)
+B.QR=new A.k1("No biometric data available yet.\nPlease check again later.",null,B.Nd,B.aj,null,null,null,null,null)
+B.Iy=new A.c6(B.CU,B.QR,null)
+B.Ac=new A.pi(B.a6,null,null,B.Iy,null)
 B.Ad=new A.UM(0,"clip")
 B.c0=new A.ER(1,"outside")
 B.l8=new A.f_(0,"y")
@@ -82770,8 +82775,8 @@ B.xo=new A.E(-1,-1)
 B.fX=new A.jW(0,0,null,null)
 B.To=new A.aaQ(0,"material")
 B.Aq=new A.uK(null)
-B.Ac=new A.pi(B.a6,null,null,B.Aq,null)
-B.LP=new A.jW(null,220,B.Ac,null)
+B.Ab=new A.pi(B.a6,null,null,B.Aq,null)
+B.LP=new A.jW(null,220,B.Ab,null)
 B.xp=new A.jW(null,12,null,null)
 B.xq=new A.jW(null,16,null,null)
 B.LQ=new A.jW(null,20,null,null)
@@ -83130,10 +83135,10 @@ B.PA=new A.o(!0,B.G,null,".AppleSystemUIFont",null,null,null,null,null,null,null
 B.PV=new A.o(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.f,null,null,null,"blackRedwoodCity labelMedium",null,null,null,null)
 B.MV=new A.o(!0,B.m,null,".AppleSystemUIFont",null,null,null,null,null,null,null,null,null,null,null,null,null,B.f,null,null,null,"blackRedwoodCity labelSmall",null,null,null,null)
 B.QQ=new A.dm(B.OH,B.NJ,B.OI,B.Pd,B.Nl,B.Ns,B.O1,B.P2,B.Of,B.PG,B.MN,B.N3,B.PA,B.PV,B.MV)
-B.QR=new A.k1("Retry",null,null,null,null,null,null,null)
+B.QS=new A.k1("Close",null,null,null,null,null,null,null,null)
+B.QT=new A.k1("Retry",null,null,null,null,null,null,null,null)
 B.P9=new A.o(!0,null,null,null,null,null,14,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
-B.QS=new A.k1("Biometrics Dashboard",null,B.P9,null,null,null,null,null)
-B.QT=new A.k1("Close",null,null,null,null,null,null,null)
+B.QU=new A.k1("Biometrics Dashboard",null,B.P9,null,null,null,null,null,null)
 B.QV=new A.Km(0,"system")
 B.xI=new A.Km(2,"dark")
 B.xJ=new A.zJ(0)
